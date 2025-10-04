@@ -32,7 +32,7 @@ def fetch_text_from_link(url):
         text = soup.get_text(separator=" ", strip=True)
         return text  # optional: limit size
         print(response.text)
-        time.sleep(random.uniform(1,3))
+        time.sleep(0.1)
     except requests.exceptions.RequestException as e:
         print(f"Request failed: {e}")
         return None

@@ -1,4 +1,5 @@
 import json
+import os
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 
@@ -30,16 +31,15 @@ def split_data_from_file(file):
         item_text_chunks = text_splitter.split_text(item_text) 
         
         chunk_seq_id = 0
-        #### loop thtough chunks
+        #### loop through chunks
         for chunk in item_text_chunks: 
-        
-		        #### extract file name from each chunk
-            form_name = file[file.rindex('/') + 1:file.rindex('.')]
+		            #### extract file name from each chunk
+            form_name=os.path.splitext(os.path.basename(file))[0]
             
             #### create a record with metadata and the chunk text
             chunks_with_metadata.append({
                 #### metadata from looping...
-                'text': chunk, 
+                'Text': chunk, 
                 'Source': item,
                 'chunkSeqId': chunk_seq_id,
                 #### constructed metadata...
