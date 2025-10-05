@@ -2,7 +2,7 @@
 from dotenv import load_dotenv
 import re
 from urllib.parse import quote
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify,render_template
 import requests
 import os
 from google import genai
